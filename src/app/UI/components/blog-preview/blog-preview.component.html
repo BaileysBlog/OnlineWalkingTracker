@@ -1,0 +1,26 @@
+<mat-card class="mt-4">
+  <mat-card-header>
+    <mat-card-title>{{Blog.Title}}</mat-card-title>
+    <mat-card-subtitle>Written by: {{Blog.Author}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image class="Clickable" [ngClass]="{'loading': DisplayLoading}" src="{{Blog.ImageUrl}}" alt="" (load)="LoadEvent($event)">
+  <mat-card-content>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <div>
+      <button mat-icon-button (click)="ToggleLike()" color="warn">
+        <mat-icon aria-label="Like Icon">{{Blog.GetLikeStatus() ? 'favorite' : 'favorite_border'}}</mat-icon>
+      </button>
+      <b class="mat-warn">{{Blog.Likes}}</b>
+      <span class="mat-warn"> Likes</span>
+    </div>
+    <div class="ml-auto">
+      <b class="mat-primary">{{Blog.Shares}}</b>
+      <span class="mat-primary"> Shares</span>
+      <button mat-icon-button (click)="Blog.LaunchShare()" color="primary">
+        <mat-icon aria-label="Share Icon" svgIcon="google-share"></mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
