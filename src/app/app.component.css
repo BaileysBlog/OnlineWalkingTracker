@@ -3,6 +3,16 @@
     background-color: inherit !important;
 }
 
+.PastDue
+{
+    color: red;
+}
+
+.Submitted
+{
+    color: green;
+}
+
 mat-sidenav
 {
     width: 50%;

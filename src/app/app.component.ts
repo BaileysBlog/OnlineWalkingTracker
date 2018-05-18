@@ -3,6 +3,8 @@ import { UIService } from './_Services/ui.service';
 import { Blog } from './_Models/blog.model';
 import { ShareScreenComponent } from './UI/components/share-screen/share-screen.component';
 import { MatDialog } from '@angular/material';
+import { Week } from './_Models/week.model';
+import { Log } from './_Models/log.model';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ import { MatDialog } from '@angular/material';
 export class AppComponent
 {
 
-  Folders: Array<any> = new Array<any>();
+  Weeks: Array<Week> = new Array<Week>();
 
   constructor(public UI: UIService, private dialog: MatDialog)
   {
@@ -22,14 +24,15 @@ export class AppComponent
       this.LaunchShare(e.detail as Blog);
     }, false);
 
-    for (let index = 0; index < this.getRandomArbitrary(50, 100); index++) 
-    {
-      this.Folders.push({
-        name: `Folder ${index + 1}`,
-        description: "A simple folder",
-        date: this.getToday()
-      });
-    }
+    
+
+    this.Weeks.push(new Week(1, 1, "Week 1", new Date('5/6/18')));
+    this.Weeks.push(new Week(2,1,"Week 2", new Date('5/13/18')));
+
+
+    var week = this.Weeks[0];
+
+    week.AddLog(new Log(week.weekID, week.userID, new Date(), 1, 16, 30, 3.6, 149, 160, 6, 96));
 
   }
   
@@ -51,17 +54,5 @@ export class AppComponent
         document.dispatchEvent(new CustomEvent("blogShared", {detail: blog}));
       }  
     });
-  }
-
-  getToday(): Date
-  { 
-    var temp = new Date();
-    return new Date(temp.getFullYear(), temp.getMonth(), temp.getDate());
-
-  }
-
-  getRandomArbitrary(min:number, max:number): number
-  {
-    return Math.random() * (max - min) + min;
   }
 }

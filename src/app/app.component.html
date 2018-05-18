@@ -4,19 +4,16 @@
     <mat-sidenav-container FullHeight>
         <mat-sidenav [mode]="'over'" [(opened)]="UI.ShowSideNav" fixedTopGap="56">
             <mat-nav-list>
-                <h3 mat-subheader>Folders</h3>
-                <mat-list-item *ngFor="let f of Folders">
-                    <mat-icon mat-list-icon>folder</mat-icon>
-                    <h4 mat-line>{{f.name}}</h4>
-                    <p mat-line> {{f.description}} | {{f.date | date}} </p>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <h3 mat-subheader>Notes</h3>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>note</mat-icon>
-                    <h4 mat-line>Note 1</h4>
-                    <p mat-line> Description | Meta-data field </p>
-                </mat-list-item>
+                <h3 mat-subheader>Weeks</h3>
+                <ng-container *ngFor="let w of Weeks">
+                    <mat-list-item>
+                        <mat-icon mat-list-icon>assignment</mat-icon>
+                        <h4 mat-line>{{w.title}}</h4>
+                        <p mat-line>{{w.weekStart | date}} - {{w.weekEnd | date}} </p>
+                        <p mat-line [ngClass]="{'PastDue': w.IsPastDue() && w.submitted != true, 'Submitted': w.submitted}">{{w.GetStatus()}}</p>
+                        <p mat-line>{{w.GetLogCount()}} log(s)</p>
+                    </mat-list-item>
+                </ng-container>
             </mat-nav-list>
         </mat-sidenav>
 
