@@ -46,7 +46,7 @@ export class AuthService {
 
   public SetRedirect(url: string):void
   { 
-    this._Redirect = url? '/home': url;
+    this._Redirect = url ? url : '/home';
   }
 
   public GetRedirect(clear: boolean = true): string

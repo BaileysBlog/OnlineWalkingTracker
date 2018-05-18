@@ -22,6 +22,7 @@ export class AuthGuard implements CanActivate
     } else
     { 
       let url = state.url;
+      console.log(url);
       this.Auth.SetRedirect(url);
       this.Nav.navigate(['/login']);
     }  

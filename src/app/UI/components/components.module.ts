@@ -12,10 +12,11 @@ import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 import { ShareScreenComponent } from './share-screen/share-screen.component';
 import { RouterModule } from '@angular/router';
 import { WeekPreviewComponent } from './week-preview/week-preview.component';
+import { LogAddComponent } from './log-add/log-add.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent, WeekPreviewComponent],
+  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent, WeekPreviewComponent, LogAddComponent],
   imports: [NgbModule, ReactiveFormsModule, MaterialModule, CommonModule,RouterModule],
   exports: [FullHeightDirective, MaterialModule, ShareScreenComponent, WeekPreviewComponent],
   entryComponents:[ShareScreenComponent]
