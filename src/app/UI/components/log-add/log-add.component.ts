@@ -44,7 +44,7 @@ export class LogAddComponent implements OnInit, OnDestroy {
     this._ActiveWeek = WeekProvider.GetActiveWeek();
 
     if (this._ActiveWeek == null)
-    { 
+    {
       ui.GoHome();
     }  
     
@@ -57,7 +57,7 @@ export class LogAddComponent implements OnInit, OnDestroy {
       Date: [{value: new Date(), disabled: true}, Validators.compose([Validators.required])]
     });
     this.DistanceForm = this.FormBuilder.group({
-      Miles: [{value: 1, disabled: true}, Validators.compose([Validators.required, Validators.max(4)])]
+      Miles: [{value: this.WeekProvider.DeterminePreDistance(), disabled: true}, Validators.compose([Validators.required, Validators.max(4)])]
     });
     this.TimeForm = this.FormBuilder.group({
       Minutes: [null, Validators.compose([Validators.required, Validators.min(1),Validators.max(61)])],
@@ -79,6 +79,12 @@ export class LogAddComponent implements OnInit, OnDestroy {
     this.TimeForm.controls['Minutes'].valueChanges.subscribe(event =>
     {
       this.CaloricExpenditureForm.controls['Time'].setValue(event);
+
+      this.PaceForm.controls['Pace'].setValue(this.UpdatePace(event, this.TimeForm.controls['Seconds'].value as number));
+    });
+    this.TimeForm.controls['Seconds'].valueChanges.subscribe(event =>
+    {
+      this.PaceForm.controls['Pace'].setValue(this.UpdatePace(this.TimeForm.controls['Minutes'].value as number, event));
     });
 
     this.CaloricExpenditureForm.controls['Time'].valueChanges.subscribe(event =>
@@ -91,6 +97,11 @@ export class LogAddComponent implements OnInit, OnDestroy {
       this.CaloricExpenditureForm.controls['Expenditure'].setValue(this.CalculateExpenditure(this.CaloricExpenditureForm.controls['Time'].value as number, event));
     });
     
+  }
+
+  private UpdatePace(minute:number, seconds:number): number
+  { 
+    return this.WeekProvider.DeterminePrePace(minute, seconds);
   }
 
   private CalculateExpenditure(time: number, cem: number): number

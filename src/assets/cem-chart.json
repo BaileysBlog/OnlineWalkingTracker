@@ -1,0 +1,74 @@
+[
+    {
+        "Weight":100,
+        "Pace":3,
+        "CEM":3
+    },
+    {
+        "Weight": 100,
+        "Pace": 3.3,
+        "CEM": 3
+    },
+    {
+        "Weight": 100,
+        "Pace": 3.5,
+        "CEM": 3
+    },
+    {
+        "Weight": 100,
+        "Pace": 3.8,
+        "CEM": 4
+    },
+    {
+        "Weight": 100,
+        "Pace": 4,
+        "CEM": 4
+    },
+    {
+        "Weight": 100,
+        "Pace": 4.3,
+        "CEM": 4
+    },
+    {
+        "Weight": 100,
+        "Pace": 4.5,
+        "CEM": 4
+    }
+
+    ,
+    {
+        "Weight": 120,
+        "Pace": 3,
+        "CEM": 3
+    },
+    {
+        "Weight": 120,
+        "Pace": 3.3,
+        "CEM": 4
+    },
+    {
+        "Weight": 120,
+        "Pace": 3.5,
+        "CEM": 4
+    },
+    {
+        "Weight": 120,
+        "Pace": 3.8,
+        "CEM": 4
+    },
+    {
+        "Weight": 120,
+        "Pace": 4,
+        "CEM": 4
+    },
+    {
+        "Weight": 120,
+        "Pace": 4.3,
+        "CEM": 5
+    },
+    {
+        "Weight": 120,
+        "Pace": 4.5,
+        "CEM": 5
+    }
+]

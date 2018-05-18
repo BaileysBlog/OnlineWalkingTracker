@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { User, Category } from '../_Models/user.model';
 
 @Injectable()
 export class AuthService {
 
+  public User: User = new User(1, Category.B, 176);
   _IsAuthenticated: boolean;
   _Redirect: string = '/home';
 
