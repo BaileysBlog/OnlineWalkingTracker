@@ -4,6 +4,7 @@ import { Blog } from '../../../_Models/blog.model';
 import { SnackBarService } from '../../../_Services/snack-bar.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../_Services/auth.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,8 @@ import { AuthService } from '../../../_Services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  private listener: Subscription;
 
   Blogs: Array<Blog> = new Array<Blog>();
 
@@ -20,7 +23,7 @@ export class HomeComponent implements OnInit {
     if (route.snapshot.data.requiresLogin || false)
     { 
       //Register for login change event
-      this.Auth.OnAuthChanged.subscribe(data =>
+      this.listener = this.Auth.OnAuthChanged.subscribe(data =>
       {
         if (!this.Auth.IsAuthenticated())
         { 
@@ -57,6 +60,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy()
+  {
+    if (this.listener != null)
+    {
+      this.listener.unsubscribe();
+    }
   }
 
 }
