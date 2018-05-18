@@ -28,11 +28,7 @@ export class AppComponent
 
     this.Weeks.push(new Week(1, 1, "Week 1", new Date('5/6/18')));
     this.Weeks.push(new Week(2,1,"Week 2", new Date('5/13/18')));
-
-
-    var week = this.Weeks[0];
-
-    week.AddLog(new Log(week.weekID, week.userID, new Date(), 1, 16, 30, 3.6, 149, 160, 6, 96));
+    this.Weeks.push(new Week(3,1, "Week 3", new Date('5/20/18')));
 
   }
   

@@ -11,12 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 import { ShareScreenComponent } from './share-screen/share-screen.component';
 import { RouterModule } from '@angular/router';
+import { WeekPreviewComponent } from './week-preview/week-preview.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent],
+  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent, WeekPreviewComponent],
   imports: [NgbModule, ReactiveFormsModule, MaterialModule, CommonModule,RouterModule],
-  exports: [FullHeightDirective, MaterialModule, ShareScreenComponent],
+  exports: [FullHeightDirective, MaterialModule, ShareScreenComponent, WeekPreviewComponent],
   entryComponents:[ShareScreenComponent]
 })
 export class ComponentsModule { }

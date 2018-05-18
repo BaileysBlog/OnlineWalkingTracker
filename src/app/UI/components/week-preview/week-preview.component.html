@@ -1,0 +1,7 @@
+<mat-list-item [disableRipple]="!Week.IsFutureWeek()" [ngClass]="{'Disabled': !Week.IsFutureWeek()}">
+  <mat-icon mat-list-icon>assignment</mat-icon>
+  <h4 mat-line>{{Week.title}}</h4>
+  <p mat-line>{{Week.weekStart | date}} - {{Week.weekEnd | date}} </p>
+  <p mat-line [ngClass]="{'PastDue': Week.IsPastDue() && Week.submitted != true, 'Submitted': Week.submitted}">{{Week.GetStatus()}}</p>
+  <p mat-line>{{Week.GetLogCount()}} log(s)</p>
+</mat-list-item>

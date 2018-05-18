@@ -1,0 +1,14 @@
+.PastDue
+{
+    color: red;
+}
+
+.Submitted
+{
+    color: green;
+}
+
+.Disabled
+{
+    cursor: not-allowed !important;
+}
