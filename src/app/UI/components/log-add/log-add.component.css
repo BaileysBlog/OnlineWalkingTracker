@@ -1,0 +1,9 @@
+.form
+{
+    display: flex;
+    flex-direction: column;
+}
+.mt-25p
+{
+    margin-top: 2%;
+}

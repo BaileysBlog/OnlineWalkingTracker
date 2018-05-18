@@ -8,7 +8,7 @@ import { LogAddComponent } from './UI/components/log-add/log-add.component';
 const routes: Routes =
   [
     { path: 'login', component: LoginComponent },
-    { path: 'log/add', component: LogAddComponent, pathMatch: 'full', data: { requiresLogin: true }, canActivate: [AuthGuard]},
+    { path: 'log/add', component: LogAddComponent, pathMatch: 'full', data: { requiresLogin: false }},
     { path: '', component: HomeComponent, pathMatch: 'full', data: {requiresLogin: false} },
     { path: '**', redirectTo:'' } 
   ];
