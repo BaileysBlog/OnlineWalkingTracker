@@ -24,7 +24,7 @@ export class UIService
         {
             if (event instanceof NavigationEnd)
             { 
-                this.ShowSideNav = false;
+                this.ShowSideNav = false;   
                 window.dispatchEvent(new Event("resize"));
             }    
         });
@@ -74,7 +74,10 @@ export class UIService
         this.BodyHeight = value;
     }
 
-    
+    public GoHome(): void
+    { 
+        this.Nav.navigate(['/home']);
+    }
 
     ToggleSideNav(): void
     { 

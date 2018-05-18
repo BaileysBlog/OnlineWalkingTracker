@@ -5,7 +5,7 @@
         <mat-sidenav [mode]="'over'" [(opened)]="UI.ShowSideNav" fixedTopGap="56">
             <mat-nav-list>
                 <h3 mat-subheader>Weeks</h3>
-                <week-preview *ngFor="let w of Weeks" [Week]="w">
+                <week-preview *ngFor="let w of WeekProvider.Weeks" [Week]="w">
                     
                 </week-preview>
             </mat-nav-list>

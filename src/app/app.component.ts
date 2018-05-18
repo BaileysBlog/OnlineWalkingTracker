@@ -3,8 +3,7 @@ import { UIService } from './_Services/ui.service';
 import { Blog } from './_Models/blog.model';
 import { ShareScreenComponent } from './UI/components/share-screen/share-screen.component';
 import { MatDialog } from '@angular/material';
-import { Week } from './_Models/week.model';
-import { Log } from './_Models/log.model';
+import { WeekService } from './_Services/week.service';
 
 @Component({
   selector: 'app-root',
@@ -13,27 +12,15 @@ import { Log } from './_Models/log.model';
 })
 export class AppComponent
 {
-
-  Weeks: Array<Week> = new Array<Week>();
-
-  constructor(public UI: UIService, private dialog: MatDialog)
+  constructor(public UI: UIService, private dialog: MatDialog, public WeekProvider: WeekService)
   {
 
     document.addEventListener("blogShare", (e: CustomEvent) =>
     {
       this.LaunchShare(e.detail as Blog);
     }, false);
-
-    
-
-    this.Weeks.push(new Week(1, 1, "Week 1", new Date('5/6/18')));
-    this.Weeks.push(new Week(2,1,"Week 2", new Date('5/13/18')));
-    this.Weeks.push(new Week(3,1, "Week 3", new Date('5/20/18')));
-
   }
   
-
-
   public LaunchShare(blog: Blog): void
   {
     let dialogRef = this.dialog.open(ShareScreenComponent, {

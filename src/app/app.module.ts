@@ -22,6 +22,7 @@ import { UIService } from './_Services/ui.service';
 import { AuthService } from './_Services/auth.service';
 import { Blog } from './_Models/blog.model';
 import { AuthGuard } from './_Services/Guards/auth.guard';
+import { WeekService } from './_Services/week.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { AuthGuard } from './_Services/Guards/auth.guard';
     MaterialModule,
     ComponentsModule
   ],
-  providers: [CheckForUpdateService,LogUpdateService, PromptUpdateService, SnackBarService, UIService,AuthService, AuthGuard],
+  providers: [CheckForUpdateService,LogUpdateService, PromptUpdateService, SnackBarService, UIService,AuthService, WeekService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule

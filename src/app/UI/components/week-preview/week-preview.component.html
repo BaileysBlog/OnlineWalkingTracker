@@ -1,4 +1,4 @@
-<mat-list-item [disableRipple]="!Week.IsFutureWeek()" [ngClass]="{'Disabled': !Week.IsFutureWeek()}">
+<mat-list-item [disableRipple]="Week.IsFutureWeek()" [ngClass]="{'Disabled': Week.IsFutureWeek()}" (click)="SetActiveWeek()">
   <mat-icon mat-list-icon>assignment</mat-icon>
   <h4 mat-line>{{Week.title}}</h4>
   <p mat-line>{{Week.weekStart | date}} - {{Week.weekEnd | date}} </p>

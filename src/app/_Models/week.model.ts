@@ -103,7 +103,7 @@ export class Week
         } else
         {
             var today = new Date();
-            if (this.IsFutureWeek())
+            if (!this.IsFutureWeek())
             {
                 return `${this.weekEnd.getDay() - today.getDay()} days remaining`;
             } else
@@ -117,7 +117,7 @@ export class Week
     public IsFutureWeek(): boolean
     {
         var today = new Date();
-        return today.getTime() > this.weekStart.getTime();
+        return today.getTime() < this.weekStart.getTime();
     }
 
     public GetLogCount(): number
