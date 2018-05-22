@@ -24,6 +24,7 @@ import { Blog } from './_Models/blog.model';
 import { AuthGuard } from './_Services/Guards/auth.guard';
 import { WeekService } from './_Services/week.service';
 import { HttpModule } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 
 @NgModule({
@@ -47,12 +48,17 @@ import { HttpModule } from '@angular/http';
 })
 export class AppModule
 {
-  constructor(checker: CheckForUpdateService, logger: LogUpdateService, prompter: PromptUpdateService)
-  { 
-    var blogShareEvent = document.createEvent("Event");
-    blogShareEvent.initEvent("blogShare", true, true);
 
-    var blogSharedEvent = document.createEvent("Event");
-    blogSharedEvent.initEvent("blogShared", true, true);
+  constructor(private Auth: AuthService, private route: ActivatedRoute)
+  { 
+    //Register for login change event
+    this.Auth.OnAuthChanged.subscribe(data =>
+    {
+      if (!this.Auth.IsAuthenticated())
+      {
+        this.Auth.SetRedirect(this.route.snapshot.url.join(""));
+        this.Auth.GoTo();
+      }
+    });
   }
 }

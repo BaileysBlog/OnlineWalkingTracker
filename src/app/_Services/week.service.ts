@@ -37,8 +37,8 @@ export class WeekService {
       this.PaceChart = x.json();
     });
 
-    this.Weeks.push(new Week(1, 1, "Week 2", new Date('5/13/18')));
-    this.Weeks.push(new Week(2, 1, "Week 3", new Date('5/20/18')));
+    this.Weeks.push(new Week(1, 1, "Week 1", new Date('5/13/2018')));
+    this.Weeks.push(new Week(2, 1, "Week 2", new Date('5/20/2018')));
   }
 
   public SetActiveWeek(weekID: number): void

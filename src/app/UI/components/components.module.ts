@@ -13,10 +13,11 @@ import { ShareScreenComponent } from './share-screen/share-screen.component';
 import { RouterModule } from '@angular/router';
 import { WeekPreviewComponent } from './week-preview/week-preview.component';
 import { LogAddComponent } from './log-add/log-add.component';
+import { WeekViewComponent } from './week-view/week-view.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent, WeekPreviewComponent, LogAddComponent],
+  declarations: [LoginComponent, BlogPreviewComponent, HomeComponent, FullHeightDirective, ShareScreenComponent, WeekPreviewComponent, LogAddComponent, WeekViewComponent],
   imports: [NgbModule, ReactiveFormsModule, MaterialModule, CommonModule,RouterModule],
   exports: [FullHeightDirective, MaterialModule, ShareScreenComponent, WeekPreviewComponent],
   entryComponents:[ShareScreenComponent]

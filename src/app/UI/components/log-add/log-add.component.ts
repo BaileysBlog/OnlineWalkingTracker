@@ -26,21 +26,8 @@ export class LogAddComponent implements OnInit, OnDestroy {
   public IntensityForm: FormGroup;
   public CaloricExpenditureForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private Auth: AuthService, private FormBuilder: FormBuilder, public WeekProvider: WeekService, private ui: UIService)
+  constructor(private Auth: AuthService, private FormBuilder: FormBuilder, public WeekProvider: WeekService, private ui: UIService)
   {
-    if (route.snapshot.data.requiresLogin || false)
-    {
-      //Register for login change event
-      this.listener = this.Auth.OnAuthChanged.subscribe(data =>
-      {
-        if (!this.Auth.IsAuthenticated())
-        {
-          this.Auth.SetRedirect(this.route.snapshot.url.join(""));
-          this.Auth.GoTo();
-        }
-      });
-    }
-
     this._ActiveWeek = WeekProvider.GetActiveWeek();
 
     if (this._ActiveWeek == null)

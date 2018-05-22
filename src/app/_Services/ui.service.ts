@@ -83,4 +83,14 @@ export class UIService
     { 
         this.ShowSideNav = !this.ShowSideNav;
     }
+
+    CloseSideNav(): void
+    { 
+        this.ShowSideNav = false;
+    }
+
+    OpenSideNav(): void
+    { 
+        this.ShowSideNav = true;
+    }
 }

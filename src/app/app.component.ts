@@ -15,27 +15,5 @@ export class AppComponent
   constructor(public UI: UIService, private dialog: MatDialog, public WeekProvider: WeekService)
   {
 
-    document.addEventListener("blogShare", (e: CustomEvent) =>
-    {
-      this.LaunchShare(e.detail as Blog);
-    }, false);
-  }
-  
-  public LaunchShare(blog: Blog): void
-  {
-    let dialogRef = this.dialog.open(ShareScreenComponent, {
-      width: '500px',
-      data: blog,
-      autoFocus: true
-    });
-
-    dialogRef.afterClosed().subscribe((result) =>
-    {
-      if (result)
-      { 
-        //Trigger event that will notify of blog share count update!
-        document.dispatchEvent(new CustomEvent("blogShared", {detail: blog}));
-      }  
-    });
   }
 }
