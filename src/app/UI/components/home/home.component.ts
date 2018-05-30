@@ -4,7 +4,7 @@ import { Blog } from '../../../_Models/blog.model';
 import { SnackBarService } from '../../../_Services/snack-bar.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../_Services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',

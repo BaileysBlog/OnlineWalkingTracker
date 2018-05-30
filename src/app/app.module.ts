@@ -23,8 +23,8 @@ import { AuthService } from './_Services/auth.service';
 import { Blog } from './_Models/blog.model';
 import { AuthGuard } from './_Services/Guards/auth.guard';
 import { WeekService } from './_Services/week.service';
-import { HttpModule } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { ActivatedRoute } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),

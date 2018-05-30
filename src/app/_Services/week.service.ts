@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Week } from '../_Models/week.model';
 import { AuthService } from './auth.service';
-import { Http } from "@angular/http";
 import { WeekData } from '../_Models/week-data.model';
 
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/timeout';
-import 'rxjs/add/operator/retry';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/takeWhile';
+import { Observable } from 'rxjs';
+
+
+
+
+
+
+
+
+
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class WeekService {
@@ -25,16 +25,16 @@ export class WeekService {
   private PaceChart = [];
   private ActiveWeek: Week;
 
-  constructor(private auth: AuthService, private web: Http)
+  constructor(private auth: AuthService, private web: HttpClient)
   {
-    this.web.get("/assets/week-chart.json").subscribe(x =>
+    this.web.get<any>("/assets/week-chart.json").subscribe(x =>
     {
-      this.WeekChart = x.json();
+      this.WeekChart = x;
     });
 
-    this.web.get("/assets/pace-chart.json").subscribe(x =>
+    this.web.get<any>("/assets/pace-chart.json").subscribe(x =>
     {
-      this.PaceChart = x.json();
+      this.PaceChart = x;
     });
 
     this.Weeks.push(new Week(1, 1, "Week 1", new Date('5/13/2018')));

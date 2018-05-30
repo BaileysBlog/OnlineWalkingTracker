@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../_Services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 import { Week } from '../../../_Models/week.model';
 import { WeekService } from '../../../_Services/week.service';
